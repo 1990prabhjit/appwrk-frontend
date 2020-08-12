@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-6">
+      <form #postForm="ngForm" (ngSubmit)="onAddTransaction(postForm)">
+        <div class="form-group">
+          <label for="type">Title</label>
+          <select class="form-control" name="type" id="type" ngModel>
+            <option value="credit" selected="selected">Credit</option>
+            <option value="debit">Debit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            required
+            ngModel
+            name="amount"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            required
+            ngModel
+            name="description"
+          ></textarea>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Save
+        </button> |
+        <button
+          class="btn btn-primary"
+          type="button"
+          (click)="onCancel()"
+          >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
